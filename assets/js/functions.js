@@ -51,17 +51,25 @@ $( document ).ready(function() {
 
   });
 
-  $('.cta').click(function(){
+  $('.cta').click(function(e) {
+      e.preventDefault(); // Ensure the default action is prevented.
+      console.log("CTA button clicked");
 
-    var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = lastItem;
+      var curActive = $('.side-nav').find('.is-active'),
+          curPos = $('.side-nav').children().index(curActive),
+          lastItem = $('.side-nav').children().length - 1,
+          nextPos = lastItem - 1; // Second-to-last item
 
-    updateNavs(lastItem);
-    updateContent(curPos, nextPos, lastItem);
+      console.log("Current Position:", curPos);
+      console.log("Last Item Index:", lastItem);
+      console.log("Next Position (Target):", nextPos);
 
+      updateNavs(nextPos);
+      updateContent(curPos, nextPos, lastItem);
   });
+
+
+
 
   // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
