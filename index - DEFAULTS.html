@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="assets/img/fysh.ico" type="image/x-icon">
   <meta name="description" content="HUB">
   <meta name="author" content="Fysh">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -92,36 +91,6 @@
           </li>
 
 
-
-          <li class="l-section section">
-            <div class="about">
-              <div class="about--banner">
-                <h2>Jeff Bezos</h2>
-
-                <textarea id="userMessage" placeholder="Featured Quote: 'how many times are they simmering down?'" rows="4" cols="50"></textarea>
-                <br>
-                <button onclick="sendMessage()">Quotify
-                    <span class="btn-background"></span>
-                </button>
-
-                <a href="#0">Career
-                </a>
-
-                <img src="assets/img/about-visual.png" alt="About Us">
-              </div>
-              <div class="about--options">
-                <a href="#0">
-                  <h3>Winners</h3>
-                </a>
-                <a href="#0">
-                  <h3>Philosophy</h3>
-                </a>
-                <a href="#0">
-                  <h3>History</h3>
-                </a>
-              </div>
-            </div>
-          </li>
 
 
 
@@ -344,41 +313,5 @@
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
 <script src="assets/js/functions-min.js"></script>
-<script>
-  function sendMessage() {
-    var userMessage = document.getElementById("userMessage").value;
-    if (!userMessage) {
-      alert("Y u no write anything? Violators must be punished.");
-      window.open("ricky.html", "_blank");
-      return;
-    }
-
-    // So time Very date
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = String(now.getMonth() + 1).padStart(2, '0');
-    var day = String(now.getDate()).padStart(2, '0');
-    var hours = String(now.getHours()).padStart(2, '0');
-    var minutes = String(now.getMinutes()).padStart(2, '0');
-    var formattedDateTime = `(${year}-${month}-${day} at ${hours}:${minutes})`;
-
-    // Con a cat a nation
-    var fullMessage = `────────────────────────────────────\n**${formattedDateTime}**\n──────────────────\n${userMessage}`;
-
-    var request = new XMLHttpRequest();
-    request.open("POST", "https://discord.com/api/webhooks/1300319517867507783/JkrSxoM1x0o2JARwzvUC6lb6DiLdG57TQ4hfAhOIAWBAz8oK4_YLpVPHImKpt1O2PF5D");
-
-    request.setRequestHeader('Content-type', 'application/json');
-
-    var params = {
-      username: "I Am Chicken",
-      avatar_url: "https://img.freepik.com/free-vector/gift-postcard-with-cartoon-animals-chicken-scarf-headphones_71599-86.jpg?size=338&ext=jpg",
-      content: fullMessage
-    }
-    request.send(JSON.stringify(params));
-
-    document.getElementById("userMessage").value = "";
-  }
-</script>
 </body>
 </html>
