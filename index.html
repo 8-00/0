@@ -39,7 +39,7 @@
         <nav class="l-side-nav">
           <ul class="side-nav">
             <li class="is-active"><span>Home</span></li>
-            <li><span>CV, Resume</span></li>
+            <li><span>Quotes</span></li>
             <li><span>Flora Borla</span></li>
             <li><span>Dart Shop</span></li>
             <li><span>Nav</span></li>
@@ -54,7 +54,7 @@
                 <img src="assets/img/Skyline_Render.jpg" alt="Welcome" width="679">
                 <h1>Link Hub</h1>
 
-                <button class="cta2">Jeff Bezos
+                <button class="cta2">Quotes
                   <span class="btn-background"></span>
                 </button>
 
@@ -97,28 +97,19 @@
             <div class="about">
               <div class="about--banner">
 
+                <h1>Quotes</h1>
+                <hr>
                 <h1>Flora Borabeth</h1>
-                <textarea id="userMessage" placeholder="Featured Quote: 'I would want my daughter to date all of them...one at a time - Jin'" rows="4" cols="50"></textarea>
+                <textarea id="floraboraquote" placeholder="Featured Quote: 'I would want my daughter to date all of them...one at a time - Jin'" rows="4" cols="50"></textarea>
                 <br>
-                <button onclick="sendMessage('https://discord.com/api/webhooks/1300319517867507783/JkrSxoM1x0o2JARwzvUC6lb6DiLdG57TQ4hfAhOIAWBAz8oK4_YLpVPHImKpt1O2PF5D')">Quotify</button>
+                <button onclick="sendMessage('floraboraquote','https://discord.com/api/webhooks/1300319517867507783/JkrSxoM1x0o2JARwzvUC6lb6DiLdG57TQ4hfAhOIAWBAz8oK4_YLpVPHImKpt1O2PF5D')">Quotify</button>
 
                 <h1>Jeff Bezos</h1>
-                <textarea id="userMessage" placeholder="Featured Quote: 'Hell yeah i feel like a mf 3D printer!' -Nolan" rows="4" cols="50"></textarea>
+                <textarea id="jeffbezosquote" placeholder="Featured Quote: 'Hell yeah i feel like a mf 3D printer!' -Nolan" rows="4" cols="50"></textarea>
                 <br>
-                <button onclick="sendMessage('https://discord.com/api/webhooks/1322740867512926208/RGPaozVd3mG0zDVyLo4knQy5VB6JEPLKm1LHkEC1w1d9dFOKUhOvqZBnUBPgPx4CMZ8X')">Quotify</button>
+                <button onclick="sendMessage('jeffbezosquote','https://discord.com/api/webhooks/1322740867512926208/RGPaozVd3mG0zDVyLo4knQy5VB6JEPLKm1LHkEC1w1d9dFOKUhOvqZBnUBPgPx4CMZ8X')">Quotify</button>
 
                 <img src="assets/img/about-visual.png" alt="About Us">
-              </div>
-              <div class="about--options">
-                <a href="#0">
-                  <h3>Winners</h3>
-                </a>
-                <a href="#0">
-                  <h3>Philosophy</h3>
-                </a>
-                <a href="#0">
-                  <h3>History</h3>
-                </a>
               </div>
             </div>
           </li>
@@ -333,7 +324,7 @@
   </div>
   <ul class="outer-nav">
     <li class="is-active">Home</li>
-    <li>Works</li>
+    <li>Quotes</li>
     <li>About</li>
     <li>Contact</li>
     <li>Hire us</li>
@@ -346,8 +337,8 @@
 <script src="assets/js/functions-min.js"></script>
 
 <script>
-  function sendMessage(webhookURL) {
-    var userMessage = document.getElementById("userMessage").value;
+  function sendMessage(m_ID, webhookURL) {
+    var userMessage = document.getElementById(m_ID).value;
     if (!userMessage) {
       alert("Y u no write anything? Violators must be punished.");
       window.open("ricky.html", "_blank");
@@ -378,7 +369,7 @@
     }
     request.send(JSON.stringify(params));
 
-    document.getElementById("userMessage").value = "";
+    document.getElementById(m_ID).value = "";
   }
 </script>
 

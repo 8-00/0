@@ -1156,6 +1156,14 @@ body {
     height: 475px
 }
 
+.about--banner textarea {
+    color: white;
+    background-color: transparent; /* Maintain existing background */
+    border: 1px solid #00884b; /* Optional: add border to match theme */
+    padding: 10px;
+    font-size: 14px; /* Adjust if necessary */
+}
+
 .about--banner button {
     background-color: #00884b;
     color: white; /* Update text color to ensure readability */
