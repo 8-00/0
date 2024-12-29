@@ -1156,6 +1156,22 @@ body {
     height: 475px
 }
 
+.about--banner button {
+    background-color: #00884b;
+    color: white; /* Update text color to ensure readability */
+    border: 2px solid #000000; /* Optional: to match existing theme */
+    padding: 5px 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.about--banner button:hover {
+    background-color: white; /* Reverse the colors on hover */
+    color: #00884b;
+}
+
 .about--banner::before {
     content: "";
     position: absolute;
@@ -1182,8 +1198,10 @@ body {
 
 .about--banner h2 {
     position: relative;
-    margin-top: 35px;
-    font-size: 68px;
+    color: #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
     font-weight: 900;
     line-height: 1;
     z-index: 1
