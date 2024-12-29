@@ -1904,3 +1904,37 @@ body {
     -webkit-transition-delay: .16s;
     transition-delay: .16s
 }
+
+.nerf-images {
+    text-align: center;
+}
+
+.nerf-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nerf-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nerf-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+.nerf-item img {
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nerf-item img:hover {
+    border-color: #333;
+}
