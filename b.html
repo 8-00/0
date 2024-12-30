@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="assets/img/fysh.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>PDF Viewer</title>
     <style>
         body {
@@ -13,15 +13,16 @@
             align-items: center;
             height: 100vh;
             background-color: #333333;
+            overflow: hidden;
         }
         iframe {
             border: none;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
-    <iframe src="b.pdf"></iframe>
+    <iframe src="b.pdf" allowfullscreen></iframe>
 </body>
 </html>
