@@ -8,22 +8,31 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             background-color: #333333;
-            height: 100vh;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
-        iframe {
-            border: none;
+        .pdf-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .pdf-container iframe {
             width: 100%;
             height: 100%;
-            overflow-y: auto;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <iframe src="b.pdf"></iframe>
+    <div class="pdf-container">
+        <iframe src="b.pdf"></iframe>
+    </div>
 </body>
 </html>
