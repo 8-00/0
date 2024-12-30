@@ -24,6 +24,14 @@
 
 <!-- Main -->
 <div class="perspective effect-rotate-left">
+    <ul class="outer-nav">
+        <li class="is-active">Home</li>
+        <li>Quotes</li>
+        <li>YT-DLP</li>
+        <li>FMP</li>
+        <li>Nav</li>
+    </ul>
+
   <div class="container"><div class="outer-nav--return"></div>
     <div id="viewport" class="l-viewport">
       <div class="l-wrapper">
@@ -41,8 +49,8 @@
           <ul class="side-nav">
             <li class="is-active"><span>Home</span></li>
             <li><span>Quotes</span></li>
-            <li><span>Dart Shop</span></li>
             <li><span>YT-DLP</span></li>
+            <li><span>FMP</span></li>
             <li><span>Nav</span></li>
           </ul>
         </nav>
@@ -67,27 +75,29 @@
                     <span class="btn-background"></span>
                 </button>
 
-                <button class="cta5">Nav
+                <button class="cta5">FMP
                     <span class="btn-background"></span>
                 </button>
 
-
+                <button class="cta5">Nav
+                    <span class="btn-background"></span>
+                </button>
               </div>
 
 
               <div class="intro--options">
-                <a href="#0">
-                  <h3>Pending To Do</h3>
-                  <p> - </p>
-                </a>
-                <a href="#0">
-                  <h3>Ping Who</h3>
-                  <p> - </p>
-                </a>
-                <a href="#0">
-                  <h3>Adding</h3>
-                  <p> - </p>
-                </a>
+                  <a href="https://www.youtube.com/@EEVblog/playlists"><h3>EEVBlog</h3>
+                    <div class="video-container" data-channel-id="UC2DjFE7Xf11URZqWBigcVOQ"><p>Loading</p></div>
+                  </a>
+
+                  <a href="https://www.youtube.com/@CarMighty/playlists"><h3>Mighty</h3>
+                    <div class="video-container" data-channel-id="UCozO6fAZXRn7C2jNbAGYNFw"><p>Loading</p></div>
+                  </a>
+
+                  <a href="https://www.youtube.com/@EngineeringExplained/playlists"><h3>Fenske.json</h3>
+                    <div class="video-container" data-channel-id="UClqhvGmHcvWL9w3R48t9QXQ"><p>Loading</p></div>
+                  </a>
+
               </div>
             </div>
           </li>
@@ -115,22 +125,6 @@
             </div>
           </li>
 
-
-          <!-- Nerf -->
-          <li class="l-section section">
-            <div class="about">
-              <div class="about--banner">
-
-                <h1>Nerf Blasters for Sale</h1>
-                <hr>
-                <a href="https://fermin07taja.github.io/FyshDartShop/index.html">
-                  <button>Navigate!</button>
-                </a>
-
-              </div>
-            </div>
-          </li>
-
           <!-- YT-DLP -->
           <li class="l-section section">
             <div class="about">
@@ -148,10 +142,30 @@
             </div>
           </li>
 
+          <!-- FMP -->
+          <li class="l-section section">
+              <div class="about">
+                <div class="about--banner">
+                    <a href="https://www.youtube.com/@EEVblog/playlists"><h3>EEVBlog</h3>
+                      <div id="video-container" data-channel-id="UC2DjFE7Xf11URZqWBigcVOQ"><p>Loading</p></div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@EEVblog/playlists"><h3>Mighty</h3>
+                      <div id="video-container" data-channel-id="UCozO6fAZXRn7C2jNbAGYNFw"><p>Loading</p></div>
+                    </a>
+                </div>
+              </div>
+          </li>
+
           <!-- Nav -->
           <li class="l-section section">
             <div class="about">
               <div class="about--banner">
+
+                <a href="https://fermin07taja.github.io/FyshDartShop/index.html">
+                  <button>Nerf eShop</button>
+                </a>
+
                 <a href="https://docs.google.com/spreadsheets/d/1FmOXR6D-jeyJmyBriq8Hzz1BQ5pjE82IgwO-I1mIsw8/edit?gid=2058464649#gid=2058464649">
                   <button>FSAE</button>
                 </a>
@@ -188,13 +202,6 @@
       </div>
     </div>
   </div>
-  <ul class="outer-nav">
-    <li class="is-active">Home</li>
-    <li>Quotes</li>
-    <li>Dart Shop</li>
-    <li>YT-DLP</li>
-    <li>Nav</li>
-  </ul>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -265,6 +272,48 @@
     document.getElementById(m_ID).value = "";
   }
 </script>
+
+<script>
+  const apiKey = 'AIzaSyBybTd4cqx75rNx1z0g8moFJZZJU1My8nE'; // Replace with your API key
+  const maxResults = 1;
+
+  async function fetchLatestVideo(channelId, container) {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}&hl=fr`;
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.items && data.items.length > 0) {
+              const videoId = data.items[0].id.videoId;
+              const embedHtml = `
+                  <iframe width="280" height="156"
+                          src="https://www.youtube.com/embed/${videoId}?controls=1&modestbranding=1&rel=0"
+                          title="YouTube video player" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                          allowfullscreen>
+                  </iframe>`;
+              container.innerHTML = embedHtml;
+
+          } else {
+              container.innerHTML = 'No videos found.';
+          }
+      } catch (error) {
+          console.error('Error fetching video:', error);
+          container.innerHTML = 'Error loading video.';
+      }
+  }
+
+  // Get all video containers
+  const videoContainers = document.querySelectorAll('.video-container');
+
+  videoContainers.forEach(container => {
+      const channelId = container.dataset.channelId;
+      fetchLatestVideo(channelId, container);
+  });
+
+  </script>
+
 
 </body>
 </html>
