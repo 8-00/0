@@ -5,31 +5,14 @@
     <link rel="icon" href="assets/img/fysh.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDF Viewer</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #333333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #pdf-container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        embed {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    <script>
+        // Redirect to the PDF in a new tab
+        window.onload = function () {
+            window.open("b.pdf", "_blank");
+        };
+    </script>
 </head>
 <body>
-    <div id="pdf-container">
-        <embed src="b.pdf" type="application/pdf">
-    </div>
+    <p style="color: white; text-align: center;">Redirecting to the PDF...</p>
 </body>
 </html>
