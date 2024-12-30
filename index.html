@@ -143,13 +143,9 @@
           <li class="l-section section">
               <div class="about">
                 <div class="about--banner">
-                    <a href="https://www.youtube.com/@EEVblog/playlists"><h3>EEVBlog</h3>
-                      <div id="video-container" data-channel-id="UC2DjFE7Xf11URZqWBigcVOQ"><p>Loading</p></div>
-                    </a>
 
-                    <a href="https://www.youtube.com/@EEVblog/playlists"><h3>Mighty</h3>
-                      <div id="video-container" data-channel-id="UCozO6fAZXRn7C2jNbAGYNFw"><p>Loading</p></div>
-                    </a>
+                    <h1>FMP</h1>
+
                 </div>
               </div>
           </li>
@@ -271,7 +267,7 @@
 </script>
 
 <script>
-  const apiKey = 'AIzaSyBybTd4cqx75rNx1z0g8moFJZZJU1My8nE'; // Replace with your API key
+  const apiKey = 'AIzaSyCGGrFmuPbbYKB6g_NWQHEq5h0ymo3o2iA';
   const maxResults = 1;
 
   async function fetchLatestVideo(channelId, container) {
@@ -293,7 +289,7 @@
               container.innerHTML = embedHtml;
 
           } else {
-              container.innerHTML = 'No videos found.';
+              container.innerHTML = 'Panik.';
           }
       } catch (error) {
           console.error('Error fetching video:', error);
