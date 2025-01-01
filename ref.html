@@ -141,5 +141,45 @@
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
 <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
 <script src="assets/js/functions-min.js"></script>
+<script>
+  const apiKey = 'AIzaSyDMIWJiZiB8tc-WBZNEGVRVaRk7OJOE-Bc';
+  const maxResults = 1;
+
+  async function fetchLatestVideo(channelId, container) {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}&hl=fr`;
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          if (data.items && data.items.length > 0) {
+              const videoId = data.items[0].id.videoId;
+              const embedHtml = `
+                  <iframe width="280" height="156"
+                          src="https://www.youtube.com/embed/${videoId}?controls=1&modestbranding=1&rel=0"
+                          title="YouTube video player" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                          allowfullscreen>
+                  </iframe>`;
+              container.innerHTML = embedHtml;
+
+          } else {
+              container.innerHTML = 'Panik.';
+          }
+      } catch (error) {
+          console.error('Error fetching video:', error);
+          container.innerHTML = 'Error loading video.';
+      }
+  }
+
+  // Get all video containers
+  const videoContainers = document.querySelectorAll('.video-container');
+
+  videoContainers.forEach(container => {
+      const channelId = container.dataset.channelId;
+      fetchLatestVideo(channelId, container);
+  });
+
+  </script>
 </body>
 </html>
