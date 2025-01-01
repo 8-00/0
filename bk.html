@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bookmarks-bar {
+            display: flex;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .bookmark {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #e6e6e6;
+            border: 1px solid #bbb;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .bookmark:hover {
+            background-color: #d6d6d6;
+        }
+
+        .folder {
+            position: relative;
+        }
+
+        .folder-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .folder-content a {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .folder-content a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .folder-content .folder {
+            position: relative;
+        }
+
+        .folder-content .folder-content {
+            top: 0;
+            left: 100%;
+        }
+
+        .folder.active > .folder-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="bookmarks-bar">
+    <a href="https://www.youtube.com/watch?v=plb1fSOU4PI" class="bookmark">Sakureye</a>
+    <a href="https://suild.com/tools" class="bookmark">Suild</a>
+    <a href="https://gamebanana.com/members/network/subscriptions/3107014" class="bookmark">Banana</a>
+    <div class="folder">
+    <div class="bookmark">All</div>
+    <div class="folder-content">
+            <div class="folder">
+            <div class="bookmark">Maya</div>
+            <div class="folder-content">
+                <div class="folder">
+                <div class="bookmark">AO3</div>
+                <div class="folder-content">
+                    <a href="https://archiveofourown.org/works/39776337/chapters/99585369" class="bookmark">Mirrors of Blue</a>
+                    <a href="https://archiveofourown.org/works/39968730/chapters/100098945#workskin" class="bookmark">Bridges</a>
+                    <a href="https://archiveofourown.org/works/38532184/chapters/96309385" class="bookmark">The Rusty Cage</a>
+                    <a href="https://archiveofourown.org/works/39972141/chapters/100096650" class="bookmark">Ennore: The Awakening</a>
+                    <a href="https://archiveofourown.org/works/39970548/chapters/100092222" class="bookmark">Naga: Book 1</a>
+                    <a href="https://archiveofourown.org/works/39624060/chapters/99191739" class="bookmark">The Last Summoning</a>
+                    <a href="https://archiveofourown.org/works/39572583/chapters/99056838" class="bookmark">Distrust: Arcadia</a>
+                    <a href="https://archiveofourown.org/works/36676129/chapters/91486063" class="bookmark">The Barons Journey</a>
+                </div>
+                </div>
+                <a href="https://www.poliigon.com/" class="bookmark">Poliigon Textures</a>
+                <a href="https://www.youtube.com/watch?v=NIP8QibQ7XU" class="bookmark">Animate Blender</a>
+                <a href="https://www.youtube.com/watch?v=pEKis7ZtUkQ" class="bookmark">Xgen Grass</a>
+                <a href="https://www.youtube.com/watch?v=RDw9JxYijEw" class="bookmark">Realistic Renders</a>
+                <a href="https://www.youtube.com/watch?v=myg-VbapLno" class="bookmark">Render Comparison</a>
+                <a href="https://www.youtube.com/watch?v=jqe9mKu0m5k" class="bookmark">Good Environment Creation</a>
+                <a href="https://www.youtube.com/watch?v=JGaZF2LAcw8&list=PLBI2Z2PMJ9P-LlLDLCKdsYf8DbX4p_vsV&index=32" class="bookmark">Bifröst Liquid</a>
+                <a href="https://www.youtube.com/watch?v=JGaZF2LAcw8&list=PLBI2Z2PMJ9P-LlLDLCKdsYf8DbX4p_vsV&index=33" class="bookmark">Fluid Beca</a>
+            </div>
+            </div>
+            <a href="https://www.smeshighlander.org/spring-2022/alumni-profile-recent-tartan-graduates-reflect-on-st-margarets-and-their-college-preparation" class="bookmark">Alumni Profile</a>
+            <a href="https://github.com/connorferster/handcalcs#installing" class="bookmark">HandCalcs</a>
+            <a href="http://127.0.0.1:7860/" class="bookmark">AI Local</a>
+            <a href="https://youtu.be/4rnOtCwv5zw" class="bookmark">RkL</a>
+            <a href="https://www.youtube.com/watch?v=p7YXXieghto&themeRefresh=1" class="bookmark">Video</a>
+            <a href="https://tenor.com/view/small-tiny-little-spongebob-gif-4819668" class="bookmark">Tiny Spongebob</a>
+            <div class="folder">
+            <div class="bookmark">Cog</div>
+            <div class="folder-content">
+                <div class="folder">
+                <div class="bookmark">Lang</div>
+                <div class="folder-content">
+                        <a href="https://nyaa.si/" class="bookmark">Nyaa</a>
+                        <a href="https://www.reddit.com/r/LearnJapanese/comments/xiio69/is_it_just_me_or_is_animelon_dead/" class="bookmark">Is Animelon Dead?</a>
+                </div>
+                </div>
+                <div class="folder">
+                <div class="bookmark">FSAE</div>
+                <div class="folder-content">
+                        <a href="https://learning.edx.org/course/course-v1:CornellX+ENGR2000X+1T2018/home" class="bookmark">EDX Ansys</a>
+                        <a href="https://www.mcmaster.com/products/bushings/" class="bookmark">McMaster-Carr</a>
+                        <a href="https://www.mcmaster.com/products/bushings/high-load-ultra-low-friction-oil-embedded-sleeve-bearings/" class="bookmark">High-Load Bearings</a>
+                        <a href="https://www.bmikarts.com/Cast-Iron-Pillow-Block-with-1-Bearing_p_4258.html" class="bookmark">Cast Iron Pillow Block</a>
+                        <a href="http://everyspec.com/AN-SPECS/AN100-AN999/AN173_THRU_AN186_REV-7_6686/" class="bookmark">EverySpec AN Bolts</a>
+                        <a href="https://www.makeitfrom.com/compare/High-Impact-Polystyrene-HIPS/Polypropylene-PP-Homopolymer/" class="bookmark">HIPS vs PP</a>
+                        <a href="https://www.youtube.com/watch?v=8m6tEv_PD4Y" class="bookmark">RACING</a>
+                </div>
+                </div>
+                <div class="folder">
+                    <div class="bookmark">Ita</div>
+                    <div class="folder-content">
+                        <div class="folder">
+                            <div class="bookmark">ID88</div>
+                            <div class="folder-content">
+                                <div class="folder">
+                                    <div class="bookmark">LAb</div>
+                                    <div class="folder-content">
+                                        <a href="https://www.youtube.com/watch?v=kHNzoZ4oheU" class="bookmark">Former Abortionist Interview</a>
+                                        <a href="https://www.youtube.com/watch?v=3wy0MY_EmDE" class="bookmark">Christian Response to Wokeness</a>
+                                        <a href="https://www.youtube.com/watch?v=6pxFUuHpJSE" class="bookmark">Combat Woke Culture</a>
+                                    </div>
+                                </div>
+                                <a href="https://www.newwaysministry.org/2019/07/22/former-priest-shares-journey-of-being-a-transgender-catholic-loved-by-god/" class="bookmark">Transgender Catholic Journey</a>
+                                <a href="https://www.theblaze.com/news/catholic-priest-becomes-transgender-woman-leaves-priesthood" class="bookmark">Priest Becomes Transgender</a>
+                                <a href="https://www.yesandyes.org/2017/07/trans-priest.html" class="bookmark">Transgender Priest Story</a>
+                                <a href="https://www.nbcnews.com/nbc-out/out-news/catholic-diocese-says-gay-trans-people-cant-baptized-receive-communion-rcna8217" class="bookmark">Baptism Ban</a>
+                                <a href="https://religionandpolitics.org/2019/07/30/the-vatican-draws-a-line-on-gender-and-transgender-catholics-push-back/" class="bookmark">The Vatican on Gender</a>
+                                <a href="https://www.newwaysministry.org/2016/08/13/catholic-priest-church-cannot-abandon-transgender-catholics/" class="bookmark">Church Cannot Abandon Trans Catholics</a>
+                                <a href="https://www.catholic.com/qa/the-churchs-position-on-transgenderism-0" class="bookmark">Church on Transgenderism</a>
+                                <a href="https://www.ncronline.org/news/opinion/what-one-priest-learned-listening-transgender-catholics" class="bookmark">Listening to Trans Catholics</a>
+                                <a href="https://duckduckgo.com/?q=Transgender+studies+by+catholic+priest&ia=web" class="bookmark">Trans Studies</a>
+                                <a href="https://www.biblegateway.com/passage/?search=John%203&version=ESV" class="bookmark">Bible Gateway - John 3</a>
+                                <a href="https://www.amazon.com/UnClobber-Expanded-Rethinking-Misuse-Homosexuality/dp/0664267467" class="bookmark">UnClobber Book</a>
+                                <a href="https://www.openbible.info/topics/lgbtq" class="bookmark">Bible on LGBTQ</a>
+                                <a href="https://www.lgbtqyouthsupport.com/what-does-the-bible-really-say-about-lgbtq-stuff/" class="bookmark">LGBTQ and the Bible</a>
+                                <a href="https://www.ncronline.org/opinion/guest-voices/responding-responsibly-parents-transgender-children" class="bookmark">Parents of Trans Children</a>
+                            </div>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=exDl62Fmm7s" class="bookmark">Call Center Kills Customers</a>
+                        <a href="https://www.youtube.com/@GrayStillPlays/videos" class="bookmark">GrayStillPlays</a>
+                        <a href="https://www.youtube.com/playlist?list=PLh6dr2Pr1VQlmm0EAZLkd0rVNUv0lW8AM" class="bookmark">OSHA Playlist</a>
+                    </div>
+                </div>
+                <div class="folder">
+                            <div class="bookmark">Math Youtube</div>
+                            <div class="folder-content">
+                                <a href="https://www.youtube.com/c/DrManab/videos" class="bookmark">Dr Manab</a>
+                                <a href="https://www.youtube.com/c/LessBoringLectures/videos" class="bookmark">Less Boring Lectures</a>
+                                <a href="https://www.youtube.com/c/RSTutoorial/videos" class="bookmark">3200 and General Math</a>
+                                <a href="https://www.engineer4free.com/blog/ultimate-guide-to-shear-force-and-bending-moment-diagrams" class="bookmark">Shear and Bending Guide</a>
+                                <a href="https://www.youtube.com/channel/UC7sPn8JudbqXM3gCyooFGnw/videos" class="bookmark">Many Mafs Videos</a>
+                                <a href="https://tutorial.math.lamar.edu/Classes/DE/BVPEvals.aspx" class="bookmark">EigenValues and EigenFunctions</a>
+                                <a href="https://www.youtube.com/c/EngelUniverse/videos" class="bookmark">Thermo / FEA</a>
+                </div>
+                </div>
+        </div>
+        </div>
+
+        <div class="folder">
+            <div class="bookmark">Forfak</div>
+            <div class="folder-content">
+                <div class="folder">
+                    <div class="bookmark">GTA5_WI22</div>
+                    <div class="folder-content">
+                        <a href="https://www.reddit.com/r/GTA/comments/10oxx7z/fan_art/" class="bookmark">Fan Art : GTA</a>
+                        <a href="https://www.youtube.com/watch?v=_Km7xMJthwA" class="bookmark">LSPDFR Installation Guide</a>
+                        <a href="https://www.lcpdfr.com/downloads/gta5mods/vehiclemodels/11691-ultimate-british-police-pack/" class="bookmark">Ultimate British Police Pack</a>
+                        <a href="https://www.youtube.com/watch?v=C0z8OilLZBQ" class="bookmark">Install Mods (2022)</a>
+                        <a href="https://www.gta5-mods.com/vehicles/nissan-skyline-r-33-1995-x-nismo-rims/download/147571" class="bookmark">Nissan Skyline GT-R</a>
+                        <a href="https://www.youtube.com/watch?v=A4hjdUhKluc" class="bookmark">Ski1743</a>
+                        <a href="https://www.youtube.com/watch?v=UydLTMA3pNs" class="bookmark">BP</a>
+                        <a href="https://www.lcpdfr.com/downloads/gta5mods/vehiclemodels/42509-ram-clonada-guardia-nacional-m%C3%A9xico-add-on/" class="bookmark">Ram Clonada Guardia Nacional</a>
+                        <a href="https://www.lcpdfr.com/downloads/gta5mods/vehiclemodels/31573-san-andreas-state-troopers-black-shadow-pack/" class="bookmark">San Andreas State Troopers</a>
+                        <a href="https://www.youtube.com/watch?v=Ws8COPmrGvU" class="bookmark">Las Venturas + San Fierro Showcase</a>
+                    </div>
+                </div>
+                <div class="folder">
+                    <div class="bookmark">GTAV_SU23</div>
+                    <div class="folder-content">
+                        <a href="https://gta5redux.com/" class="bookmark">GTA 5 Redux</a>
+                        <a href="https://www.gta5-mods.com/scripts/simple-trainer-for-gtav" class="bookmark">Simple Trainer</a>
+                        <a href="https://www.gta5-mods.com/scripts/turn-signals" class="bookmark">Turn Signals</a>
+                        <a href="https://www.gta5-mods.com/scripts/manual-transmission-ikt" class="bookmark">Manual Transmission</a>
+                        <a href="https://www.youtube.com/watch?v=ZyOMZpe2JXA" class="bookmark">Custom Loading Screen Music</a>
+                        <a href="https://www.gta5-mods.com/misc/dirt-mod-4k" class="bookmark">Dirt Mod (4K)</a>
+                        <a href="https://www.gta5-mods.com/vehicles/yamaha-yzf-r6-2015-add-on-tunable" class="bookmark">Yamaha YZF R6 2015</a>
+                        <a href="https://github.com/Ryochan7/DS4Windows/releases" class="bookmark">DS4Windows</a>
+                        <a href="https://www.gta5-mods.com/scripts/advanced-persistence-vehicle-management#comments_tab" class="bookmark">Advanced Persistence & Vehicle Management</a>
+                        <a href="https://www.gta5-mods.com/scripts/no-boundary-limits-unknown-modder" class="bookmark">No Boundary Limits</a>
+                        <a href="https://github.com/crosire/scripthookvdotnet/releases" class="bookmark">ScriptHookVDotNet</a>
+                        <a href="https://github.com/LemonUIbyLemon/LemonUI/releases" class="bookmark">LemonUI Releases</a>
+                        <a href="https://www.gta5-mods.com/misc/gta-5-gameconfig-300-cars" class="bookmark">Gameconfig for Limitless Vehicles</a>
+                        <a href="https://www.youtube.com/watch?v=UPYYHTjw-fY" class="bookmark">In This Shirt Video</a>
+                    </div>
+                </div>
+                <div class="folder">
+                    <div class="bookmark">Interested</div>
+                    <div class="folder-content">
+                        <a href="https://www.gta5-mods.com/maps/new-realistic-forests-of-blaine-county-abandoned-cabin-menyoo" class="bookmark">Forests of Blaine County</a>
+                        <a href="https://www.gta5-mods.com/misc/skysder-s-enhanced-traffic-experience" class="bookmark">Enhanced Traffic Experience</a>
+                        <a href="https://www.gta5-mods.com/maps/citylights-v1-visualparadox" class="bookmark">CityLights</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="folder">
+            <div class="bookmark">Amigos</div>
+            <div class="folder-content">
+                <a href="https://www.youtube.com/watch?v=HpbjOd4w3-Y" class="bookmark">Cards Against Humanity</a>
+                <a href="https://www.kinguin.net/" class="bookmark">Kinguin</a>
+                <a href="https://sandwichqbano.com/nuestro-menu/sandwich/#" class="bookmark">Sandwich Qbano</a>
+                <a href="https://www.reddit.com/r/birdswitharms/comments/q8yu14/sithravens_practicing_their_lightsaber_techniques/" class="bookmark">Sith-Ravens</a>
+                <a href="https://www.reddit.com/r/birdswitharms/comments/q71d88/wholesome_yet_cursed_a_terribly_good_combination/" class="bookmark">Wholesome Yet Cursed</a>
+                <div class="folder">
+                    <div class="bookmark">Rushi</div>
+                    <div class="folder-content">
+                        <a href="https://www.goodreads.com/book/show/26864835-blood-for-blood" class="bookmark">Blood for Blood</a>
+                        <a href="https://rotimatic.com/" class="bookmark">Rotimatic</a>
+                        <a href="https://docs.google.com/spreadsheets/d/1ASHSH5RB1KTjY75m0gRos0MAAdX00d3OvX5qZ0eiFlk/edit#gid=0" class="bookmark">Cornell Supply List</a>
+                        <a href="https://www.youtube.com/c/OwlKitty/videos" class="bookmark">OwlKitty</a>
+                        <a href="https://www.youtube.com/watch?v=hLj8UEZjuTg" class="bookmark">ASL Places Around Town</a>
+                    </div>
+                </div>
+                <div class="folder">
+                    <div class="bookmark">Rush3AM</div>
+                    <div class="folder-content">
+                        <a href="https://www.reddit.com/r/Genshin_Impact/comments/lwmjvm/how_zhongli_deal_a_hu_tao_by_%E5%93%88%E7%B1%B3%E4%BC%A6%E7%9A%84%E5%BC%84%E7%AC%9B%E8%80%85_from_bilibili/" class="bookmark">Zhongli vs Hu Tao</a>
+                        <a href="https://www.youtube.com/watch?v=fpPXdw8uYmY" class="bookmark">KFC's Great Divide</a>
+                        <a href="https://picrew.me/share?cd=v0kH9yGPlL" class="bookmark">Avatar Maker</a>
+                        <a href="https://www.reddit.com/r/badtattoos/comments/atc6s0/terrifying/" class="bookmark">Terrifying Tattoos</a>
+                        <a href="https://www.youtube.com/channel/UCnEzmBNWrM9jxcITRfY5jlg" class="bookmark">JuneArtCraft19</a>
+                        <a href="https://www.youtube.com/user/NocturnoPlays" class="bookmark">Life of Boris</a>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=HpbjOd4w3-Y" class="bookmark">Cards Against Humanity</a>
+                <a href="https://www.kinguin.net/" class="bookmark">Kinguin</a>
+                <a href="https://sandwichqbano.com/nuestro-menu/sandwich/#" class="bookmark">Sandwich Qbano</a>
+                <a href="https://www.reddit.com/r/birdswitharms/comments/q6epco/birdswitharms/" class="bookmark">Birds With Arms</a>
+                <a href="https://www.reddit.com/r/birdswitharms/comments/prcjeu/found_in_the_wild/" class="bookmark">Found in the Wild</a>
+            </div>
+        </div>
+        <div class="folder">
+            <div class="bookmark">STOR</div>
+            <div class="folder-content">
+                <a href="https://www.chunkbase.com/apps/seed-map#8561321103035272379" class="bookmark">Minecraft Seed Map</a>
+                <a href="https://www.youtube.com/watch?v=UPYYHTjw-fY" class="bookmark">In This Shirt</a>
+                <a href="https://www.reddit.com/r/Cornell/comments/u2y0z9/wtf_is_this_spotted_in_duffield/" class="bookmark">Spotted in Duffield</a>
+                <a href="https://www.reddit.com/r/Shitty_Car_Mods/comments/znydk8/uhhhhh/" class="bookmark">Shitty Car Mods</a>
+                <a href="https://www.youtube.com/watch?v=cFK87MJ96A8" class="bookmark">Arduino RFID Module</a>
+                <a href="https://www.imdb.com/title/tt8783930/" class="bookmark">Time Traveler's Wife</a>
+                <a href="https://forums.autodesk.com/t5/maya-forum/maya-2022-has-account-info-in-corner-blocking-quot-file-quot/m-p/10301098#M88502" class="bookmark">Maya Button Issue</a>
+                <a href="https://mapgenie.io/tarkov/maps/customs" class="bookmark">Tarkov Map</a>
+                <a href="https://www.youtube.com/watch?v=rB83DpBJQsE" class="bookmark">Maxwell's Equations</a>
+                <div class="folder">
+                    <div class="bookmark">Gabriel</div>
+                    <div class="folder-content">
+                        <a href="https://www.youtube.com/watch?v=OGTG1l7yin4" class="bookmark">Google Maps API Key</a>
+                        <a href="https://stackoverflow.com/questions/6456090/android-google-map-finding-distance#6456208" class="bookmark">Google Maps Distance</a>
+                        <a href="https://www.youtube.com/watch?v=dFhKVJcmADo" class="bookmark">Distance Matrix API</a>
+                    </div>
+                </div>
+                <div class="folder">
+                    <div class="bookmark">TamaleHusk</div>
+                    <div class="folder-content">
+                        <a href="https://www.youtube.com/playlist?list=PLOAf1ViVP13jdhvy-wVS7aR02xnDxueuL" class="bookmark">Advanced Linear Algebra</a>
+                        <a href="https://eship.cornell.edu/item/epsilon-nu-tau-ent/" class="bookmark">Epsilon Nu Tau</a>
+                        <a href="https://openstax.org/books/university-physics-volume-1/pages/13-4-satellite-orbits-and-energy" class="bookmark">Satellite Orbits</a>
+                        <a href="https://socratic.org/questions/a-35-0ml-sample-of-0-150-m-acedic-is-titrated-with-0-150-m-naoh-solution-calcula" class="bookmark">Titration Steps</a>
+                        <a href="https://www.youtube.com/watch?v=WIu117KQcag" class="bookmark">Improper Integrals</a>
+                        <a href="https://holooly.com/solutions/the-center-post-b-of-the-assembly-has-an-original-length-of-124-7-mm-whereas-posts-a-and-c-have-a-length-of-125-mm-if-the-caps-on-the-top-and-bottom-can-be-considered-rigid-determine-the-average-no/" class="bookmark">Average Stress in Posts</a>
+                        <a href="https://www.youtube.com/watch?v=7ieNTRolAwE" class="bookmark">Cylindrical Vessel Pressure</a>
+                    </div>
+                </div>
+                <a href="https://pythonnumericalmethods.berkeley.edu/notebooks/chapter23.05-Python-ODE-Solvers.html" class="bookmark">Python ODE Solvers</a>
+                <a href="https://www.taydaelectronics.com/" class="bookmark">Tayda Electronics</a>
+                <a href="https://incorrect-quotes.tumblr.com/" class="bookmark">Just Another Incorrect Quotes Blog</a>
+                <a href="https://www.google.com/search?q=Chaeyoung" class="bookmark">Chaeyoung</a>
+                <a href="https://discord.com/developers/applications" class="bookmark">Discord DevPortal</a>
+                <a href="https://www.youtube.com/watch?v=SPTfmiYiuok" class="bookmark">Create a Discord Bot in Python</a>
+                <a href="https://docs.google.com/spreadsheets/d/1vKPpPvzOAqFyzWnLmKMoTl2WODKsD8k2o0htEo45MaA/edit" class="bookmark">MIT 2024 EA Financial Aid</a>
+                <a href="https://utr.com/" class="bookmark">UTR</a>
+                <div class="folder">
+                    <div class="bookmark">Tecnología</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=JEzu9_vQcMY">Installing macOS Monterey in VMWare - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.downloadsource.net/how-to-fix-the-windows-re-image-was-not-found-winre-wim-install-wim-install-esd/n/20721/">How to fix The Windows RE image was not found (Winre.wim install.wim install.esd)</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=VXx6l3vgBno">RFID Cards Hacking [Cloning] Using Arduino - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=OXRnh4R58zY">homemade diy arduino micro usb rubber ducky-for learning - YouTube</a></div>
+                        <div class="bookmark"><a href="https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads">Payloads · hak5darren/USB-Rubber-Ducky Wiki · GitHub</a></div>
+                        <div class="bookmark"><a href="https://cedarctic.github.io/digiQuack/">RubberDucky</a></div>
+                        <div class="bookmark"><a href="https://0x00sec.org/t/a-complete-beginner-friendly-guide-to-the-digispark-badusb/8002">Digispark_BadUSB</a></div>
+                        <div class="bookmark"><a href="https://www.ebay.com/itm/221889695650?_trksid=p2057872.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT">Moar_Digis</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=0xZPhPjsnRo">Pr#31 Mando de radio barato/casero con NRF24 - 7 canales o más - YouTube</a></div>
+                        <div class="bookmark"><a href="http://www.seeedstudio.com/blog/2019/11/21/nrf24l01-getting-started-arduino-guide/">NRF24L01 Transceiver: Getting Started, Arduino Guide - Latest open tech from seeed studio</a></div>
+                        <div class="bookmark"><a href="https://www.electronicshub.org/nrf24l01-transceiver-module/">nRF24L01 Transceiver Module</a></div>
+                        <div class="bookmark"><a href="https://www.instructables.com/Getting-Started-With-NRF24L01-Wireless-Transceiver/">Getting Started With NRF24L01 Wireless Transceiver Module : 8 Steps - Instructables</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=57pdX6b0sfw">Arduino + NRF24 simple tutorial and range test - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=7rcVeFFHcFM">Arduino Wireless Communication – NRF24L01 Tutorial - YouTube</a></div>
+                        <div class="bookmark"><a href="https://howtomechatronics.com/tutorials/arduino/arduino-wireless-communication-nrf24l01-tutorial/">nRF24L01 - How It Works, Arduino Interface, Code, Schematic</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=KxLhTqZRthI">Latest How to install and setup Latest DiscordSRV on Minecraft Multiplayer Server On Aternos on Java - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=GytPlfaEIBY">Linux format and partition a USB drive with fdisk and mkfs - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.pcgamer.com/ps3-controller-on-pc-guide/">How to use a PS3 controller on PC guide: Wired and Bluetooth | PC Gamer</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=yaThYGr37DI">Arch Linux USB</a></div>
+                        <div class="bookmark"><a href="https://www.smpspowersupply.com/power-supply.html">Computer Power Supply- Diagram and Operation</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=FmlxC0goKew">ESP32</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=a1Vb0Flo6bI">How to Play Minecraft with a Sixaxis PS3 Controller on Ubuntu - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=RuSoMt6vSbg">How to disable mouse integration in VMware Workstation Player? - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=vEYniQhvuug">How to play Minecraft on Oracle VM Virtualbox (without mouse error) - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=ZUNpa63I_Bo">Minecraft 1.18 EASY iron farm TUTORIAL! - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=15BwCdMQ3TA">How to create a Windows 11 on ARM Virtual Machine with VMware Fusion Technical Preview for M1 Macs - YouTube</a></div>
+                        <div class="bookmark"><a href="https://uupdump.net/download.php?id=fdb8a3c7-e28d-48e2-80fa-54673f5786ee&pack=en-us&edition=core;professional">Summary for Windows 11 Insider Preview 10.0.22000.160 (co_release) arm64, English (United States), Windows Home, Windows Pro - UUP dump</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=C5is4jfjoEQ">How To Download UUP dump Windows 11 ARM ISO On macOS M1 Macs - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=jxd8gVxxg2k">How to Get ANY Windows ISO File using UUP Dump! - YouTube</a></div>
+                        <div class="bookmark"><a href="https://stackoverflow.com/questions/29000613/add-leading-zeros-to-a-list-of-numbers-in-python">string - add leading zeros to a list of numbers in Python - Stack Overflow</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=stIxEKR7o-c">How to Scrape and Download ALL images from a webpage with Python - YouTube</a></div>
+                        <div class="bookmark"><a href="https://github.com/ytdl-org/youtube-dl/blob/master/youtube_dl/extractor/kaltura.py">youtube-dl/kaltura.py at master · ytdl-org/youtube-dl · GitHub</a></div>
+                        <div class="bookmark"><a href="https://github.com/sharmaruchi30/video-to-frames">Video to Frames</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=kTvSxEdhEzM">macOS in VMware (AMD or Intel) w/ working iServices (iMessage on Android!) - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=znJSfHyhS5I">How To Fix LAN World Not Showing Up - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=kABLfvY7T4k">Machine Animation Tutorial: Rigging a Cable Chain in Maya 2017 - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.reddit.com/r/huion/comments/14jcksh/huion_keydial_mini_k20_wont_show_up_on_windows_11/">K20</a></div>
+                        <div class="bookmark"><a href="https://github.com/dumbeau/AutoHotPie">GitHub - dumbeau/AutoHotPie: Radial menus in Windows, aka PIE MENYOOS!</a></div>
+                    </div>
+                </div>
+
+                <a href="https://pcsupport.lenovo.com/" class="bookmark">Lenovo Migration Drivers</a>
+                <div class="folder">
+                    <div class="bookmark">Lenovo Migration</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-pro-5-16irx8/82wk/82wk0069us/pf4c301q/downloads/driver-list/component?name=Motherboard%20Devices%20%28core%20chipset,%20onboard%20video,%20PCIe%20switches%29&id=FB762CAD-DE8B-49C2-A04B-809B4958F608">HAHAH SUCK ITTTT</a></div>
+                        <div class="bookmark"><a href="https://pcsupport.lenovo.com/gb/en/products/laptops-and-netbooks/legion-series/legion-5-15ith6/downloads/ds550043-intel-serial-io-driver-for-windows-10-64-bit-legion-5-15ith6h?category=Motherboard%20Devices%20%28core%20chipset,%20onboard%20video,%20PCIe%20switches%29">DN1</a></div>
+                        <div class="bookmark"><a href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/gaming-series/ideapad-gaming-3-15iah7/downloads/ds554852-intel-serial-io-driver-for-windows-11-64-bit-ideapad-gaming-3-15iah7?category=Motherboard%20Devices%20%28core%20chipset,%20onboard%20video,%20PCIe%20switches%29">Intel Serial-IO Driver for Windows 11 (64-bit) - IdeaPad Gaming 3 15IAH7, IdeaPad Gaming 3 16IAH7 - Lenovo Support US</a></div>
+                    </div>
+                </div>
+
+                <div class="folder">
+                    <div class="bookmark">Modelacion</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=CNz7x2thbmk">More nCloth stuff ( as promised ) - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=azS1svM8uL0">Maya 2019 tutorial : Playing with nCloth, Wind, Constraints, Gravity and more - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=gUPDZQ0HMs4">Intro to Dynamics in Maya 2019: nCloth (1/2) - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/c/MichaelPavlovich/videos">Michael Pavlovich - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=9BVK7ZUYBQs">039 ZBrush 2018 Stretch And Skew Deformers - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=t7isPofP6IU">026 ZBrush 2021 Animation Cache Record, Playback, and Scrub Deformation Over Time - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=VppbSUIzcmU">015 ZBrush 2021 On Masked - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=hL9_7GEu_n0">DIY How to Make Colored Smoke Bombs At Home - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=jlh5YClHdi8">WIRES</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=mndnkzBiGZ4">3.7v to 5v DC converter - Mobile Power Bank using DC step-up boost module - YouTube</a></div>
+                        <div class="bookmark"><a href="http://www.aversis.be/hdri/hdri-free.htm">Free HDRI or High Dynamic Range Images for download</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=RkkoHzI8644">Creating an ocean - Part 1 of 4: Getting Started with BOSS - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=mFUsEIsGNZc">NOODLE ARMS! Maya: using curve warp for tentacles, snakes, cables, vines and all things bendy. - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=ylnEfTwNBPg">Como Renderizar Causticas con VRay y Maya para Piscinas + Modelar y Animar el Agua - MayaTubers - YouTube</a></div>
+                        <div class="bookmark"><a href="https://cloud.chaos.com/download-client-app">Download Client App | Chaos Cloud</a></div>
+                        <div class="bookmark"><a href="http://www.rockthe3d.com/download-500-free-high-resolution-hdri-maps/">HDRI</a></div>
+                        <div class="bookmark"><a href="https://globalonlineacademy.instructure.com/courses/1989/modules">Modules</a></div>
+                    </div>
+                </div>
+
+                <div class="folder">
+                    <div class="bookmark">JCS</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#activitypage/80361655/roster">Student</a></div>
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#academicclass/91844624/0/bulletinboard">Compsci</a></div>
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#academicclass/91798741/0/bulletinboard">Phys Mech</a></div>
+                        <div class="bookmark"><a href="https://livejohncooper-my.sharepoint.com/:o:/r/personal/klarance_johncooper_org/_layouts/15/WopiFrame.aspx?sourcedoc=%7Bdfbeb28e-9360-4971-ad78-85171a3303ad%7D&action=default">APBC</a></div>
+                        <div class="bookmark"><a href="https://livejohncooper-my.sharepoint.com/personal/kgorman_johncooper_org/_layouts/15/WopiFrame.aspx?sourcedoc={bc35c814-d430-4816-864f-b1c846a94c9b}&action=view&wd=target%28_Content%20Library%2FUsing%20the%20Content%20Library.one%7C3904343d-03ec-4e26-b30b-96c12dac8c8f%2FBic_Pen_Lengths%7C6f504349-ca86-498a-81c0-4148205375d6%2F%29">APCS</a></div>
+                    </div>
+                </div>
+
+                <div class="folder">
+                    <div class="bookmark">JCS</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#activitypage/80361655/roster">Student</a></div>
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#academicclass/91844624/0/bulletinboard">Compsci</a></div>
+                        <div class="bookmark"><a href="https://johncooper.myschoolapp.com/app/student#academicclass/91798741/0/bulletinboard">Phys Mech</a></div>
+                        <div class="bookmark"><a href="https://livejohncooper-my.sharepoint.com/:o:/r/personal/klarance_johncooper_org/_layouts/15/WopiFrame.aspx?sourcedoc=%7Bdfbeb28e-9360-4971-ad78-85171a3303ad%7D&action=default">APBC</a></div>
+                        <div class="bookmark"><a href="https://livejohncooper-my.sharepoint.com/personal/kgorman_johncooper_org/_layouts/15/WopiFrame.aspx?sourcedoc={bc35c814-d430-4816-864f-b1c846a94c9b}&action=view&wd=target%28_Content%20Library%2FUsing%20the%20Content%20Library.one%7C3904343d-03ec-4e26-b30b-96c12dac8c8f%2FBic_Pen_Lengths%7C6f504349-ca86-498a-81c0-4148205375d6%2F%29">APCS</a></div>
+                    </div>
+                </div>
+
+
+                <div class="folder">
+                    <div class="bookmark">Tiếng Việt</div>
+                    <div class="folder-content">
+                        <div class="bookmark"><a href="https://tracau.vn/?s=g%E1%BA%B7p%20ch%E1%BB%8B%20ch%E1%BA%A1y%20t%E1%BB%A5t%20qu%E1%BA%A7n%20r%E1%BB%93i%20ch%E1%BB%A9%20ch%E1%BB%A5p%20h%C3%ACnh%20g%C3%AC">Tra Cau</a></div>
+                        <div class="bookmark"><a href="https://vnexpress.net/trung-quoc-keu-goi-nguoi-dan-an-vua-du-4149755.html">Trung Quốc kêu gọi người dân 'ăn vừa đủ' - VnExpress Đời sống</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/c/ChauTu/videos">Chau Tu - YouTube</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=jp2lV0odR00">Chuyện Rằng x Phố Cũ Còn Anh - Nhạc Lofi Vietnam Nhẹ Nhàng Chill Nhất - YouTube</a></div>
+                        <div class="bookmark"><a href="https://vi.wikipedia.org/wiki/Trang_Ch%C3%ADnh">Wiki</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=jpNhBFRcwuA&list=PLNQN3dVcGsh1VarRc6qdG6f3CHR6EQVF-&index=11">DocumentaryWO</a></div>
+                        <div class="bookmark"><a href="https://hoc247.net/hoi-dap/toan-10/chung-minh-s-2r-2-sinasinbsinc-voi-s-la-dien-tich-tam-giac-abc-faq363146.html">Chứng minh S=2R^2.sinAsinBsinC với S là diện tích tam giác ABC - Lan Ha</a></div>
+                        <div class="bookmark"><a href="https://docs.google.com/document/d/1IdH7ZyYbmehFlRNEDieAepGZ1LHeHw4xSmNg6NC2WCQ/edit">Vietnamese, December 13, 2020 - Google Docs</a></div>
+                        <div class="bookmark"><a href="https://www.youtube.com/watch?v=k4d0npmLN6A">Vlog</a></div>
+                    </div>
+                </div>
+
+                <a href="https://www.youtube.com/watch?v=EjDErc9d4cU" class="bookmark">Fractal Python 3 Sierpinski Arrowhead</a>
+                <a href="https://www.youtube.com/watch?v=EjDErc9d4cU" class="bookmark">Fractal Python 3 Sierpinski Arrowhead - YouTube</a>
+                <a href="https://www.youtube.com/watch?v=wRLrSszqFvc" class="bookmark">Wheel, Cage and Motor Choice for My First Stryfe Build: Nerf</a>
+                <a href="https://www.youtube.com/watch?v=d46Mb6nEqhI" class="bookmark">Improve BSL Shaders 8 | Optimized & Refined Settings</a>
+                <a href="https://github.com/Joshua-Ciffer/Blue-Pelican" class="bookmark">GitHub - Joshua-Ciffer/Blue-Pelican: Blue Pelican Java Textbook Work</a>
+                <a href="https://codingbat.com/java/array-1" class="bookmark">CODINGBAT - Arrays</a>
+                <a href="https://www.youtube.com/watch?v=dKH1YRfBYiA" class="bookmark">TOTAL IDIOTS AT WORK 2022 - YouTube</a>
+                <a href="https://www.youtube.com/watch?v=LFep0dN8dyk" class="bookmark">Funniest Leadership Speech Ever! - YouTube</a>
+                <a href="https://www.youtube.com/watch?v=Ms0B_c-X_kA" class="bookmark">Making a BULLETPROOF John Wick Suit in Real Life! - YouTube</a>
+                <a href="https://www.tomshardware.com/how-to/get-windows-10-file-explorer-in-windows-11" class="bookmark">How to Get Windows 10's File Explorer in Windows 11 | Tom's Hardware</a>
+                <a href="https://www.tomshardware.com/how-to/get-full-context-menus-in-windows-11" class="bookmark">How to Get Full Context Menus in Windows 11 | Tom's Hardware</a>
+                <a href="https://www.amazon.com/DieCast-Wheels-Toyota-Sprinter-Trueno/dp/B09PG77FQQ/ref=sr_1_13?crid=1T9WQJVXKPIT2&keywords=ae86+hotwheels&qid=1674365135&sprefix=ae86+hotwheels%2Caps%2C82&sr=8-13" class="bookmark">AE-86</a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+    <script>
+        document.querySelectorAll('.folder > .bookmark').forEach(folderToggle => {
+            folderToggle.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent clicks from propagating
+
+                const folder = folderToggle.parentElement;
+                const isActive = folder.classList.contains('active');
+
+                // Close all subfolders when a parent folder is toggled
+                if (!isActive) {
+                    folder.querySelectorAll('.folder').forEach(subfolder => {
+                        subfolder.classList.remove('active');
+                    });
+                }
+
+                // Only toggle the current folder
+                folder.classList.toggle('active');
+            });
+        });
+
+        // Prevent links from closing the folder
+        document.querySelectorAll('.folder-content a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent folder from closing
+            });
+        });
+    </script>
+</body>
+</html>
