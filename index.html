@@ -108,12 +108,12 @@
                 <h1>Quotes</h1>
                 <hr>
                 <h1>Flora Borabeth</h1>
-                <textarea id="floraboraquote" placeholder="Featured Quote: 'I would want my daughter to date all of them...one at a time - Jin'" rows="4" cols="50"></textarea>
+                <textarea id="floraboraquote" placeholder="Featured Quote: 'I would want my daughter to date all of them...one at a time - Jin'" rows="4" cols="30"></textarea>
                 <br>
                 <button onclick="sendMessage('floraboraquote','https://discord.com/api/webhooks/1300319517867507783/JkrSxoM1x0o2JARwzvUC6lb6DiLdG57TQ4hfAhOIAWBAz8oK4_YLpVPHImKpt1O2PF5D')">Quotify</button>
 
                 <h1>Jeff Bezos</h1>
-                <textarea id="jeffbezosquote" placeholder="Featured Quote: 'Hell yeah i feel like a mf 3D printer!' -Nolan" rows="4" cols="50"></textarea>
+                <textarea id="jeffbezosquote" placeholder="Featured Quote: 'Hell yeah i feel like a mf 3D printer!' -Nolan" rows="4" cols="30"></textarea>
                 <br>
                 <button onclick="sendMessage('jeffbezosquote','https://discord.com/api/webhooks/1322740867512926208/RGPaozVd3mG0zDVyLo4knQy5VB6JEPLKm1LHkEC1w1d9dFOKUhOvqZBnUBPgPx4CMZ8X')">Quotify</button>
 
@@ -131,10 +131,20 @@
                 <h1>YT-DLP</h1>
                 <hr>
                 <h1>Download Send</h1>
-                <textarea id="ytdl_send" placeholder="Place URL Here" rows="4" cols="50"></textarea>
+                <textarea id="ytdl_send" placeholder="Place URL Here" rows="4" cols="30"></textarea>
                 <br>
                 <button onclick="sendMessageDL('ytdl_send','https://discord.com/api/webhooks/1300319046922666024/G0aT3WGItlbmG7jSP2LYYYIep13p5UJG_eAH7mSyWNoZSHTxTrE6t8Q7pJnYdzYuLFCT')">Send</button>
 
+                <br>
+
+                <form id="uploadForm">
+                    <label for="message">File Transfer</label><br>
+                    <textarea id="message" rows="1" cols="10" placeholder="Text Transfer"></textarea><br><br>
+                    <label for="file">Send file:</label><br>
+                    <input type="file" id="file"><br><br>
+
+                    <button type="button" onclick="sendToWebhook()">File Fly :L</button>
+                </form>
               </div>
             </div>
           </li>
@@ -153,11 +163,20 @@
                       <button>API Calls</button>
                     </a>
 
+                    Model Try https://monstermash.zone/
+
                     <a href="https://open.spotify.com/artist/6J0JxSwEg57rP2Qm7lPAZf">
                       <button>ITNC</button>
                     </a>
 
                     Jamie Wei
+
+                    <a href="https://www.youtube.com/@myukmusic/videos/playlists"><h3>Myuk</h3>
+                      <div class="video-container" data-channel-id="UCnMgcmXcgdwuqDXsJgzoC0w"><p>Loading</p></div>
+                    </a>
+
+                    https://www.instagram.com/reel/DEH13NIvlJj/?igsh=MWoxNDNocjl5dTB5dw==
+
 
                     <hr>
 
@@ -260,7 +279,7 @@
                   <div class="video-container" data-channel-id="UCflkKrWXg5F-BR5omd4qr2g"><p>Loading</p></div>
                 </a>
 
-                <form method="get" id="ddgSearch" action="https://duckduckgo.com/" style="position: absolute; left: 1px; top: -35px;">
+                <form method="get" id="ddgSearch" action="https://duckduckgo.com/" style="position: absolute; left: 131px; top: -35px;">
                     <input type="hidden" name="sites" value=""/>
                     <input type="hidden" name="k7" value="#ffffff"/>
                     <input type="hidden" name="k8" value="#00884b"/>
@@ -398,6 +417,40 @@
 
   </script>
 
+  <script>
+      async function sendToWebhook() {
+          const webhookUrl = "https://discord.com/api/webhooks/1207948446095515648/-f8LikU8c4BC2DQAl8JcNbFQHnTCvKr0NAwwrCCfd1JXr1ZaqcTU5UIxOztl64oNjX1e";
+          const message = document.getElementById("message").value;
+          const fileInput = document.getElementById("file");
+          const formData = new FormData();
+
+          if (message) {
+              formData.append("content", message);
+          }
+
+          if (fileInput.files.length > 0) {
+              formData.append("file", fileInput.files[0]);
+          }
+
+          try {
+              const response = await fetch(webhookUrl, {
+                  method: "POST",
+                  body: formData
+              });
+
+              if (response.ok) {
+                  alert("Message sent successfully!");
+              } else {
+                  const error = await response.text();
+                  console.error("Error response:", error);
+                  alert("Failed to send message: " + response.status);
+              }
+          } catch (error) {
+              console.error("Error sending to webhook:", error);
+              alert("An error occurred. Check the console for details.");
+          }
+      }
+  </script>
 
 </body>
 </html>
