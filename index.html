@@ -87,12 +87,13 @@
                 <a href="http://studentcenter.cornell.edu/">SC</a>
                 <a href="https://canvas.cornell.edu/courses/71572">3150</a>
                 <a href="https://canvas.cornell.edu/courses/73977/files">6700</a>
-                <a href="https://canvas.cornell.edu/courses/71502/modules">5860</a>
+                <a href="https://canvas.cornell.edu/courses/71502/modules">4860</a>
                 <a href="https://canvas.cornell.edu/courses/72272/modules">7999</a>
+                <a href="https://canvas.cornell.edu/courses/74156">5630</a>
                 <a href="https://drive.google.com/drive/folders/177hRy5z72-DlB6sVYHi1Z5L40T5UCEuy?usp=sharing">5630-G</a>
-                <a href="">5949</a>
-                <a href="">6710</a>
+                <a href="https://canvas.cornell.edu/courses/73977/files">6710</a>
                 <a href="https://canvas.cornell.edu/courses/74483/modules">6055</a>
+                <a href="https://drive.google.com/drive/folders/1hpiNJgSk9WqdqV40DfdAbfzAkRObeq5s?usp=drive_link">1690</a>
               </div>
 
               <div class="intro--options">
@@ -161,8 +162,7 @@
                     <label for="message">File Transfer</label><br>
                     <textarea id="message" rows="1" cols="20" placeholder="Description"></textarea><br><br>
                     <input type="file" id="file"><br><br>
-                    <button type="button" onclick="sendToWebhook()">File Fly :L</button>
-
+                    <button type="button" onclick="sendToWebhook('uploadForm', 'https://discord.com/api/webhooks/1207948446095515648/-f8LikU8c4BC2DQAl8JcNbFQHnTCvKr0NAwwrCCfd1JXr1ZaqcTU5UIxOztl64oNjX1e')">File Fly :L</button>
                 </form>
               </div>
             </div>
@@ -173,16 +173,15 @@
               <div class="about">
                 <div class="about--banner">
 
+
                     <h1>FMP</h1>
-                    <a href="https://cherrilang.org/language/standard/scripting.html">
-                      <button>Cherri Lang</button>
+                    <a href="https://monstermash.zone/">
+                      <button>Model Try</button>
                     </a>
 
                     <a href="https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas?project=embed-2-446307">
                       <button>API Calls</button>
                     </a>
-
-                    Model Try https://monstermash.zone/
 
                     <a href="https://open.spotify.com/artist/6J0JxSwEg57rP2Qm7lPAZf">
                       <button>ITNC</button>
@@ -190,9 +189,13 @@
 
                     Jamie Wei
 
-                    <a href="https://www.youtube.com/@myukmusic/videos/playlists"><h3>Myuk</h3>
-                      <div class="video-container" data-channel-id="UCnMgcmXcgdwuqDXsJgzoC0w"><p>Loading</p></div>
-                    </a>
+                    <form id="clasrec">
+                        <label for="message">Class Records</label><br>
+                        <textarea id="message" rows="1" cols="20" placeholder="Description"></textarea><br><br>
+                        <input type="file" id="file"><br><br>
+                        <button type="button" onclick="sendToWebhook('clasrec', 'https://discord.com/api/webhooks/1333832470453288970/yCvWbpWvCpQe5QedN9hkxsiYNZxI1Agvtnjipn6dAwlgGFlXDijayr106-KrNM4YZf2V')">Archive</button>
+                    </form>
+
 
                     https://www.instagram.com/reel/DEH13NIvlJj/?igsh=MWoxNDNocjl5dTB5dw==
 
@@ -294,9 +297,18 @@
                   <button>Ramon Nunez</button>
                 </a>
 
-                <a href="https://youtu.be/_GIkRKSUXnE?si=t3lj6d8JwXWaZN0k"><h3>Replay Value</h3>
-                  <div class="video-container" data-channel-id="UCflkKrWXg5F-BR5omd4qr2g"><p>Loading</p></div>
-                </a>
+
+
+
+                <div class="intro--options">
+                    <a href="https://youtu.be/_GIkRKSUXnE?si=t3lj6d8JwXWaZN0k"><h3>Replay Value</h3>
+                      <div class="video-container" data-channel-id="UCflkKrWXg5F-BR5omd4qr2g"><p>Loading</p></div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@myukmusic/videos/playlists"><h3>Myuk</h3>
+                      <div class="video-container" data-channel-id="UCnMgcmXcgdwuqDXsJgzoC0w"><p>Loading</p></div>
+                    </a>
+                </div>
 
                 <form method="get" id="ddgSearch" action="https://duckduckgo.com/" style="position: absolute; left: 131px; top: -35px;">
                     <input type="hidden" name="sites" value=""/>
@@ -436,29 +448,35 @@
 
   </script>
 
+
   <script>
-      async function sendToWebhook() {
-          const webhookUrl = "https://discord.com/api/webhooks/1207948446095515648/-f8LikU8c4BC2DQAl8JcNbFQHnTCvKr0NAwwrCCfd1JXr1ZaqcTU5UIxOztl64oNjX1e";
-          const message = document.getElementById("message").value;
-          const fileInput = document.getElementById("file");
+      async function sendToWebhook(m_ID, webhookURL) {
+          const form = document.getElementById(m_ID);
+          if (!form) {
+              alert("Form not found");
+              return;
+          }
+
+          const message = form.querySelector("#message").value; // Get the message from the textarea
+          const fileInput = form.querySelector("#file"); // Get the file input from the form
           const formData = new FormData();
 
           if (message) {
-              formData.append("content", message);
+              formData.append("content", message); // Add the message to the form data
           }
 
-          if (fileInput.files.length > 0) {
-              formData.append("file", fileInput.files[0]);
+          if (fileInput && fileInput.files.length > 0) {
+              formData.append("file", fileInput.files[0]); // Add the file to the form data
           }
 
           try {
-              const response = await fetch(webhookUrl, {
+              const response = await fetch(webhookURL, {
                   method: "POST",
                   body: formData
               });
 
               if (response.ok) {
-                  alert("Message sent successfully!");
+                  alert("Message and file sent successfully!");
               } else {
                   const error = await response.text();
                   console.error("Error response:", error);
@@ -470,6 +488,9 @@
           }
       }
   </script>
+
+
+
 
 </body>
 </html>
